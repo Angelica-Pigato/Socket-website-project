@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCP UDP Page</title>
+    <!-- Collegamento a Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Collegamento al file CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Topbar che manda alle diverse sezioni della pagina -->
+    <div class="topbar">
+        <button onclick="location.href='#TCP'">Protocollo TCP</button>
+        <button onclick="location.href='#UDP'">Protocollo UDP</button>
+        <button onclick="location.href='#differenze'">Differenze</button>
+    </div>
+
+    <!-- Navbar per accedere alle pagine del sito-->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Socket e Networking</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="socket.html">Socket</a></li>
+                    <li class="nav-item"><a class="nav-link" href="osi.html">Modello OSI</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tcp_udp.html">TCP vs UDP</a></li>
+                    <li class="nav-item"><a class="nav-link" href="glossario.html">Glossario</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sezione definizione protocollo TCP-->
+    <div class="container mt-5">
+        <h1 class="text-center"><strong>TCP e UDP</strong></h1>
+        <br>
+        
+        <div id="TCP">
+            <h5><strong>Protocollo TCP</strong></h5>
+            <div class = "bordo">
+            <p>Il TCP (Transmission Control Protocol) è un protocollo di trasporto che fa parte del modello OSI (livello 4) ed è uno dei protocolli fondamentali della suite di protocolli di Internet, nota come TCP/IP.</p>
+            <p>TCP è progettato per garantire una comunicazione affidabile e ordinata tra due dispositivi su una rete, come ad esempio tra un client e un server. È un protocollo orientato alla connessione, il che significa che stabilisce una connessione tra il mittente e il destinatario prima di inviare i dati.</p>
+            <p>Caratteristiche principali:
+                <ul>
+                <li>Prima di trasmettere i dati, TCP stabilisce una connessione tra il mittente e il destinatario attraverso un processo noto come three-way handshake (stretta di mano a tre vie). Solo dopo che questa connessione è stata stabilita, i dati possono essere inviati.</li>
+                <li>TCP garantisce che i dati inviati arrivino correttamente al destinatario. Se i dati vengono persi o danneggiati durante il trasferimento, TCP si occupa di rilevare l'errore e richiedere la ritrasmissione dei pacchetti mancanti.</li>
+                <li>TCP gestisce il flusso di dati per evitare che il destinatario venga sopraffatto da troppi pacchetti inviati troppo rapidamente. Utilizza un meccanismo chiamato finestra di ricezione per regolare la velocità di invio dei dati.</li>
+                </ul>
+            </p>
+        </div>
+        </div>
+        </div>
+
+        <br>
+
+        <!-- Sezione definizione protocollo UDP-->
+        <div class="container mt-5">
+        <div id="UDP">
+            <h5><strong>Protocollo UDP</strong></h5>
+            <div class = "bordo">
+                <p>UDP (User Datagram Protocol) è un protocollo di trasporto appartenente alla suite di protocolli TCP/IP ed è definito al livello 4 del modello OSI.</p>
+                <p>A differenza del TCP, che è orientato alla connessione e garantisce la consegna affidabile dei dati, UDP è un protocollo senza connessione, che non offre alcuna garanzia sulla consegna dei pacchetti o sull'ordine in cui arrivano. UDP è progettato per essere più semplice e veloce, ma meno affidabile rispetto a TCP.</p>
+                <p>Caratteristiche principali:
+                    <ul>
+                    <li>UDP ha un overhead molto inferiore rispetto a TCP, poiché non ha bisogno di gestire la connessione, la sequenza dei pacchetti, la ritrasmissione dei dati o la gestione del flusso. Questo lo rende più veloce, con minori costi computazionali.</li>
+                    <li>UDP invia i dati come datagrammi (pacchetti) di dimensioni variabili. Ogni pacchetto UDP può contenere una quantità diversa di dati, che può essere interpretata come un singolo blocco di informazione.</li>
+                    <li>UDP è spesso scelto per applicazioni che richiedono una bassa latenza e tollerano la perdita di alcuni pacchetti, come lo streaming audio e video in tempo reale, o i giochi online.</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+        </div>
+
+        <br>
+
+        <!-- Tabella che mostra le differenze tra i due protocolli -->
+        <div class="container mt-5">
+        <div id="differenze">
+            <h5><strong>Differenze</strong></h5>
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Caratteristica</th>
+                            <th>TCP (Transmission Control Protocol)</th>
+                            <th>UDP (User Datagram Protocol)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tipo di Protocollo</td>
+                            <td>Orientato alla connessione</td>
+                            <td>Senza connessione</td>
+                        </tr>
+                        <tr>
+                            <td>Affidabilità</td>
+                            <td>Affidabile: garantisce la consegna dei dati, gestione degli errori, ritrasmissione dei pacchetti persi.</td>
+                            <td>Non affidabile: non garantisce la consegna dei dati.</td>
+                        </tr>
+                        <tr>
+                            <td>Controllo del flusso</td>
+                            <td>Utilizza il controllo del flusso per regolare la velocità di invio dei pacchetti.</td>
+                            <td>Non ha controllo del flusso.</td>
+                        </tr>
+                        <tr>
+                            <td>Controllo della congestione</td>
+                            <td>Sì, TCP include meccanismi di controllo della congestione per evitare il sovraccarico della rete.</td>
+                            <td>No, UDP non ha meccanismi per il controllo della congestione.</td>
+                        </tr>
+                        <tr>
+                            <td>Gestione della connessione</td>
+                            <td>Prima dell'invio dei dati, stabilisce una connessione tra il client e il server tramite il processo di "handshake".</td>
+                            <td>Invia i pacchetti senza stabilire una connessione.</td>
+                        </tr>
+                        <tr>
+                            <td>Velocità</td>
+                            <td>Più lento a causa dell'overhead per la gestione della connessione, del controllo del flusso e della ritrasmissione.</td>
+                            <td>Più veloce, meno overhead, senza gestione della connessione.</td>
+                        </tr>
+                        <tr>
+                            <td>Controllo degli errori</td>
+                            <td>Mediante checksum e ritrasmissione dei pacchetti persi.</td>
+                            <td>Mediante checksum, ma senza ritrasmissione dei pacchetti persi.</td>
+                        </tr>
+                        <tr>
+                            <td>Ordinamento dei pacchetti</td>
+                            <td>I pacchetti arrivano nell'ordine in cui sono stati inviati, grazie alla numerazione dei pacchetti e alla gestione del flusso.</td>
+                            <td>I pacchetti possono arrivare nell'ordine errato.</td>
+                        </tr>
+                        <tr>
+                            <td>Connessione</td>
+                            <td>Stabile e garantita tra il client e il server.</td>
+                            <td>Senza garanzie: i pacchetti sono inviati indipendentemente.</td>
+                        </tr>
+                        <tr>
+                            <td>Esempi di applicazioni</td>
+                            <td>HTTP, FTP, SMTP, SSH, IMAP, POP3, Telnet.</td>
+                            <td>DNS, VoIP, streaming video/audio in tempo reale, giochi online.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <br>
+
+    <!-- Footer -->
+    <footer class="text-center py-3">
+        <p class="text-footer">Angelica Pigato, Classe 5F</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket Website</title>
+    <!-- Collegamento a Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Collegamento al file CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <!-- Navbar per accedere alle pagine del sito -->
+   <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Socket e Networking</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="socket.html">Socket</a></li>
+                <li class="nav-item"><a class="nav-link" href="osi.html">Modello OSI</a></li>
+                <li class="nav-item"><a class="nav-link" href="tcp_udp.html">TCP vs UDP</a></li>
+                <li class="nav-item"><a class="nav-link" href="glossario.html">Glossario</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <!-- Contenuto della homepage -->
+    <div class="container mt-5">
+        <h1 class="text-center"><strong>Introduzione alle socket</strong></h1>
+        <br>
+        <p>Le <strong>socket</strong> sono uno degli strumenti fondamentali per la comunicazione tra dispositivi in una rete. In questo sito, esploreremo il loro funzionamento, le tipologie e il processo di comunicazione server-client, oltre a concetti comuni in Informatica e Sistemi e Reti.</p>
+
+        <!-- Immagine aggiunta schema socket -->
+        <img src="SchemaSocket.png" alt="Schema socket" class="img-left">
+
+        <br>
+        <p>Nel sito sono presenti definizioni chiare riguardo le socket, le loro funzionalità, le tipologie e la comunicazione che esse svolgono. Inoltre, viene riportato un esempio di connessione tramite socket attraverso VSCode: i due codici mostrano i due diversi programmi che devono essere compilati per ottenere una connesione di tipo </p>
+        <p>Le socket non sono tutte uguali, infatti in questo sito scoprirai la differenza tra una Socket Stream e una Socket Datagram, oltre che ad una descrizione dettagliata della comunicazione Serve-Client.</p>
+        <p>Il modello OSI è fondamentale per la comunicazione, in questo sito conoscerai la composizione della pila ISO/OSI, i suoi livelli e, in particolare, la funzionalità del livello 4 di trasporto.</p>
+        <p>Due dei protocolli più importanti per la comunicazione sono il TCP e l'UDP, nella pagina relativa troverai le loro descrizioni, le caratteristiche, i ruoli e le principali differenze.</p>
+        <p>Infine, se qualche concetto non ti risulta chiaro, consulta la pagina dedicata al glossario, troverai le definizioni più ricorrenti nel sito.</p>
+    </div>
+
+    <br>
+
+    <!-- Footer -->
+    <footer class="text-center py-3">
+        <p class="text-footer">Angelica Pigato, Classe 5F</p>
+    </footer>
+
+</body>
+</html>

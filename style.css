@@ -1,0 +1,203 @@
+/* Cambia il colore di sfondo */
+body {
+    background-color: #a2d8ff; /* Azzurro chiaro */
+    font-family: Arial, sans-serif;
+}
+
+/* Cambia il colore del titolo */
+h1, h5 {
+    color: #0056b3; /* Blu scuro */
+}
+
+/* Cambia il colore del testo nei paragrafi */
+p, li {
+    color: #0056b3; /* Blu scuro */
+    text-align: center;
+}
+
+/* Cambia il colore di tutti i link */
+a {
+    color: #0056b3; /* Blu scuro */
+}
+
+/* Modifica il colore dei link al passaggio del mouse */
+a:hover {
+    color: #003d73; /* Blu scuro */
+}
+
+/* Navbar sfondo blu e testo chiaro */
+.navbar {
+    background-color: #0056b3; /* Blu scuro */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font moderno */
+}
+
+/* Modifica la scritta 'Socket e Networking' del titolo */
+.navbar .navbar-brand {
+    font-size: 1.8rem; /* Ingrandisci il testo del titolo */
+    font-weight: bold; /* Rende il testo più evidente */
+}
+
+/* Colore del testo per i link nella navbar */
+.navbar .navbar-nav .nav-link {
+    color: white; /* Testo bianco */
+    margin-right: 25px; /* Maggiore margine tra i link */
+    font-size: 1.1rem; /* Ingrandisce la dimensione del testo dei link */
+}
+
+/* Colore al passaggio del mouse sui link */
+.navbar .navbar-nav .nav-link:hover {
+    color: #a2d8ff; /* Azzurro chiaro */
+}
+
+/* Navbar allineata a sinistra*/
+.navbar .navbar-nav {
+    display: flex; /* Allinea i link in orizzontale */
+    justify-content: flex-start; /* Allinea i link a sinistra */
+    flex-wrap: nowrap; /* Impedisce che i link vadano a capo */
+    padding-left: 0; /* Rimuove il padding */
+}
+
+/* Aggiungi margine tra i link */
+.navbar .navbar-nav .nav-item {
+    margin-right: 25px; /* Maggiore spazio tra i link */
+}
+
+/* Barra in alto a destra con pulsanti */
+.topbar {
+    position: fixed;
+    top: 50px;
+    right: 10px;
+    z-index: 1000;
+}
+
+.topbar button {
+    margin: 5px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* Modifica colore sfondo al passaggio del mouse */
+.topbar button:hover {
+    background-color: #003d73;
+}
+
+/* Footer sfondo blu e testo chiaro */
+footer {
+    background-color: #1e90ff; /* Blu scuro */
+    height: 50px;
+}
+
+footer p {
+    color: white; /* Testo bianco */
+}
+
+.text-footer {
+    color: #a2d8ff;
+}
+
+/* Immagine con float-left */
+.img-left, .img-pila {
+    display: block;
+    margin: 0 auto 15px auto;
+}
+
+.img-left {
+    width: 300px;
+}
+
+.img-pila {
+    width: 200px;
+}
+
+.img-trasporto {
+    width: 500px;
+    height: 200px;
+}
+
+/* Box per il bordo intorno alla descrizione */
+.bordo {
+    border: 2px solid #0056b3; /* Blu */
+    padding: 15px;
+    margin-top: 15px;
+    background-color: #a2d8ff; /* Sfondo chiaro */
+    color: #343a40; /* Testo */
+}
+
+/* Stile per il contenitore del codice */
+.code-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+/* Box del codice */
+.code-box {
+    width: 48%; /* Ogni box occupa circa metà della larghezza del contenitore */
+    background-color: #000000; /* Sfondo nero per i blocchi di codice */
+    color: #9f9595; /* Testo grigio */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Courier New', monospace; /* Font per il codice */
+}
+
+/* Stile per il codice all'interno del box */
+pre code {
+    white-space: pre-wrap; /* Mantiene la formattazione */
+    word-wrap: break-word; /* Va a capo per le righe troppo lunghe */
+}
+
+/* Tabella */
+table {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #0056b3;
+    color: #0056b3;
+}
+
+th {
+    background-color: #007bff;
+    color: #0056b3;
+}
+
+tr:nth-child(even) {
+    background-color: #64afff;
+}
+
+/* Contenitore per la tabella */
+.table-container {
+    margin-top: 30px;
+}
+
+/* Centra il titolo */
+.title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Testo definizione */
+.term {
+    font-weight: bold;
+}
+
+.definition {
+    margin-bottom: 10px;
+}
+
+/* Allinea il testo al centro */
+.text-center {
+    text-align: center;
+}
+
+/* Aggiungi uno spazio tra il titolo e il resto del contenuto */
+h5 {
+    margin-bottom: 10px;
+}

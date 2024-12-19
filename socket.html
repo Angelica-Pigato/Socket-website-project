@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket Page</title>
+    <!-- Collegamento a Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Collegamento al file CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Topbar che manda alle diverse sezioni della pagina -->
+    <div class="topbar">
+        <button onclick="location.href='#definizione'">Che cos'è una Socket?</button>
+        <button onclick="location.href='#socket_stream_datagram'">Socket Stream e Socket Datagram</button>
+        <button onclick="location.href='#server_client'">Comunicazione Server Client</button>
+    </div>
+
+    <!-- Navbar per accedere alle pagine del sito -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Socket e Networking</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="socket.html">Socket</a></li>
+                    <li class="nav-item"><a class="nav-link" href="osi.html">Modello OSI</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tcp_udp.html">TCP vs UDP</a></li>
+                    <li class="nav-item"><a class="nav-link" href="glossario.html">Glossario</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1 class="text-center"><strong>Socket</strong></h1>
+        <br>
+        
+        <div id="definizione">
+            <h5><strong>Che cos'è una socket?</strong></h5>
+            <div class = "bordo">
+            <p>Una socket è un'interfaccia software che consente la comunicazione tra due applicazioni su una rete, come ad esempio un server e un client. Le socket vengono utilizzate per inviare e ricevere dati tra dispositivi su una rete, come Internet o una rete locale (LAN). Esse permettono la comunicazione tra applicazioni su diversi dispositivi, indipendentemente dalla loro posizione fisica, permettendo di utilizzare protocolli di rete come TCP (Transmission Control Protocol) o UDP (User Datagram Protocol).</p>
+            </div>
+        <div class = code-container>
+            <div class = "code-box">
+
+            <!-- Sezione che mostra il codice server e il codice client per la creazione di una socket -->
+            <pre>
+                <code>
+    CODICE SERVER
+    
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <string.h>
+    #include <sys/types.h>
+    #include <sys/socket.h>
+    #include <netinet/in.h>
+    #include <unistd.h>
+                            
+    int main() {
+        int sockfd;
+        struct sockaddr_in server_addr;
+
+        // Creazione della socket (tipo SOCK_STREAM per TCP)
+        sockfd = socket(AF_INET, SOCK_STREAM, 0);
+        if (sockfd < 0) {
+            perror("Errore durante la creazione della socket");
+            exit(1);
+        }
+                            
+        // Impostazione dell'indirizzo del server
+        memset(&server_addr, 0, sizeof(server_addr));
+        server_addr.sin_family = AF_INET;
+        server_addr.sin_addr.s_addr = INADDR_ANY;
+        server_addr.sin_port = htons(8080); // Porta di ascolto
+
+        // Binding della socket con l'indirizzo e la porta
+        if (bind(sockfd, (struct sockaddr *)&server_addr, sizeof(server_addr)) < 0) {
+            perror("Errore durante il bind");
+            exit(1);
+        }
+
+        // Messa in ascolto per connessioni in ingresso
+        if (listen(sockfd, 5) < 0) {
+            perror("Errore durante la messa in ascolto");
+            exit(1);
+        }
+
+        printf("Server in ascolto sulla porta 8080...\n");
+
+        close(sockfd); // Chiusura della socket
+
+        return 0;
+    }
+                        
+                </code>
+            </pre>
+            </div>
+            <div class = "code-box">
+                <pre>
+                    <code>
+    CODICE CLIENT
+   
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <string.h>
+    #include <sys/types.h>
+    #include <sys/socket.h>
+    #include <netinet/in.h>
+    #include <unistd.h>
+    #include <arpa/inet.h>
+
+    int main() {
+        int sockfd;
+        struct sockaddr_in server_addr;
+        char *message = "Ciao Server!";
+
+        // Creazione della socket (tipo SOCK_STREAM per TCP)
+        sockfd = socket(AF_INET, SOCK_STREAM, 0);
+        if (sockfd < 0) {
+            perror("Errore durante la creazione della socket");
+            exit(1);
+        }
+
+        // Impostazione dell'indirizzo del server (server in locale per esempio)
+        memset(&server_addr, 0, sizeof(server_addr));
+        server_addr.sin_family = AF_INET;
+        server_addr.sin_port = htons(8080);  // Porta del server
+        server_addr.sin_addr.s_addr = inet_addr("127.0.0.1"); // Indirizzo del server (localhost)
+
+        // Connessione al server
+        if (connect(sockfd, (struct sockaddr *)&server_addr, sizeof(server_addr)) < 0) {
+            perror("Errore durante la connessione");
+            exit(1);
+        }
+
+        printf("Connessione al server riuscita!\n");
+
+        // Invia un messaggio al server
+        if (send(sockfd, message, strlen(message), 0) < 0) {
+            perror("Errore durante l'invio del messaggio");
+            exit(1);
+        }
+
+        printf("Messaggio inviato al server: %s\n", message);
+
+        close(sockfd); // Chiusura della socket
+
+        return 0;
+    }
+                              
+                    </code>
+                </pre>
+                </div>
+        </div>
+        </div>
+
+        <br>
+
+        <!-- Sezione Socket Stream e Socket Datagram -->
+        <div id="socket_stream_datagram">
+            <h5><strong>Socket Stream e Socket Datagram</strong></h5>
+            <div class = "bordo">
+                <p>I socket stream utilizzano il protocollo TCP (Transmission Control Protocol), che è un protocollo orientato alla connessione. Questi socket sono utilizzati per comunicazioni affidabili, in cui i dati vengono trasmessi in modo sequenziale, senza errori e senza perdita di pacchetti.</p>
+                <p>Caratteristiche principali:
+                    <ul>
+                    <li>Orientati alla connessione: Prima che i dati possano essere inviati, deve essere stabilita una connessione tra il client e il server.</li>
+                    <li>Affidabilità: TCP garantisce che i dati vengano ricevuti correttamente, gestendo il controllo degli errori, il riordino dei pacchetti e la ritrasmissione dei pacchetti persi.</li>
+                    <li>Flusso di byte: I dati vengono inviati come un flusso continuo di byte, senza delimitatori tra i pacchetti.</li>
+                    </ul>
+                </p>
+                <p>Controllo del flusso e congestione: TCP include meccanismi di controllo del flusso (per evitare che il destinatario venga sopraffatto) e controllo della congestione (per gestire la capacità della rete).
+                    Tipico utilizzo:
+                    Trasmissione di file.
+                    Applicazioni web (HTTP/HTTPS).
+                    Email (SMTP, IMAP).
+                    Chat in tempo reale.</p> 
+            </div>
+        </div>
+
+        <br>
+
+        <!-- Sezione Comunicazione Server Client -->
+        <div id="server_client">
+            <h5><strong>Comunicazione Server Client</strong></h5>
+            <div class = "bordo">
+                <p>I socket datagram utilizzano il protocollo UDP (User Datagram Protocol), che è un protocollo senza connessione. A differenza di TCP, UDP non garantisce la consegna dei pacchetti, l'ordine o la protezione contro gli errori.</p>
+                <p>
+                    Caratteristiche principali:
+                    <ul>
+                    <li>Senza connessione: Non è necessario stabilire una connessione tra client e server prima di inviare i dati. Ogni pacchetto (datagramma) viene inviato individualmente.</li>
+                    <li>Non affidabile: UDP non garantisce che i pacchetti arrivino a destinazione, né che arrivino nell'ordine corretto. Non esegue alcun controllo di errore o ritrasmissione.</li>
+                    <li>Basso overhead: Poiché UDP non ha i meccanismi di gestione di connessione e di errore di TCP, ha un overhead minore e quindi è più veloce.</li>
+                    <li>Meno flessibilità: Non esiste un flusso continuo di byte. Ogni invio è indipendente, quindi occorre includere il contesto nel messaggio stesso, se necessario.</li>
+                    </ul>
+                </p>
+                <p>Tipico utilizzo:
+                    Streaming video o audio in tempo reale (dove la perdita di qualche pacchetto non è critica).
+                    Giochi online in tempo reale.
+                    DNS (Domain Name System).
+                    Trasmissioni broadcast o multicast.</p>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <!-- Footer -->
+    <footer class="text-center py-3">
+        <p class="text-footer">Angelica Pigato, Classe 5F</p>
+    </footer>
+
+    <!-- Inclusione dei file JS di Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

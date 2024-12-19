@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSI Page</title>
+    <!-- Collegamento a Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Collegamento al file CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Topbar che manda alle diverse sezioni della pagina -->
+    <div class="topbar">
+        <button onclick="location.href='#definizione'">Che cos'è il modello OSI?</button>
+        <button onclick="location.href='#pila'">Pila ISO/OSI</button>
+        <button onclick="location.href='#trasporto'">Livello 4: trasporto</button>
+    </div>
+
+    <!-- Navbar per accedere alle pagine del sito -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Socket e Networking</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="socket.html">Socket</a></li>
+                    <li class="nav-item"><a class="nav-link" href="osi.html">Modello OSI</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tcp_udp.html">TCP vs UDP</a></li>
+                    <li class="nav-item"><a class="nav-link" href="glossario.html">Glossario</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1 class="text-center"><strong>Modello OSI</strong></h1>
+        <br>
+
+        <!-- Sezione definizione del modello osi-->
+        <div id="definizione">
+            <h5><strong>Che cos'è il modello OSI?</strong></h5>
+            <div class = "bordo">
+            <p>Il modello OSI (Open Systems Interconnection) è un modello di riferimento utilizzato per comprendere e standardizzare il funzionamento delle reti di comunicazione. È stato sviluppato dall'ISO (International Organization for Standardization) negli anni '80 per promuovere l'interoperabilità tra diversi sistemi di rete.</p>
+            <p>Il modello OSI è composto da 7 livelli, ognuno dei quali rappresenta una funzione specifica nel processo di comunicazione tra due dispositivi. Ogni livello è progettato per eseguire un compito specifico e comunica con il livello direttamente sopra e sotto di esso.</p>
+            </div>
+        
+        </div>
+    </div>
+
+    <!-- Sezione definizione ed immagine pila iso/osi-->
+    <div class="container mt-5">
+        <div id="pila">
+            <h5><strong>Pila ISO/OSI</strong></h5>
+            <div class = "columns-container">
+            <div class = "bordo">
+                <p>La pila ISO/OSI è formata da 7 livelli: fisico, collegamento, rete, trasporto, sessione, presentazione, applicazione.</p>
+                <p>Ogni livello è collegato all'altro e contribuisce alla comunicazione e all'invio di dati. I dati vengono passati per i vari livelli, fino al livello 1 (fisico) prima di essere trasmessi fisicamente alla rete.</p>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sezione definizione livello 4: trasporto-->
+    <div class="container mt-5">
+        <div id="trasporto">
+            <h5><strong>Livello 4: trasporto</strong></h5>
+            <div class = "bordo">
+                <p>Il Livello 4: Trasporto (Transport Layer) del modello OSI (Open Systems Interconnection) è un livello cruciale che si occupa di garantire la trasmissione affidabile dei dati tra due dispositivi su una rete. È il livello che gestisce il flusso e la corretta consegna dei dati, assicurandosi che i dati inviati dal mittente arrivino al destinatario in modo preciso, senza errori e nell'ordine giusto.</p>
+                <p>
+                    Caratteristiche principali:
+                    <ul>
+                    <li>Il livello di trasporto è responsabile di garantire la consegna affidabile dei dati tra il mittente e il destinatario. Questo include il controllo degli errori e la ritrasmissione dei pacchetti persi.</li>
+                    <li>Il trasporto gestisce la velocità di trasmissione dei dati per evitare che il ricevente venga sopraffatto da troppe informazioni in un breve periodo.</li>
+                    <li>Il livello di trasporto consente la multiplexazione delle comunicazioni. Ciò significa che più flussi di dati provenienti da diverse applicazioni possono essere inviati tramite la stessa connessione di rete. Il protocollo di trasporto assegna un "numero di porta" univoco per ogni connessione, che consente a più applicazioni di condividere la stessa rete senza interferire tra loro.</li>
+                    <li>Il livello 4 fornisce un controllo degli errori a livello di segmenti. Ad esempio, TCP include un controllo di errore tramite un checksum che verifica l'integrità dei dati trasmessi e permette di rilevare eventuali modifiche nei dati.</li>
+                    </ul>
+            </div>
+            
+        </div>
+    </div>
+
+    <br>
+
+    <!-- Foooter-->
+    <footer class="text-center py-3">
+        <p class="text-footer">Angelica Pigato, Classe 5F</p>
+    </footer>
+
+</body>
+</html>
